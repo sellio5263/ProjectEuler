@@ -3,18 +3,22 @@ import math, time
 """
 * Used In Problem(s) 2
 """
-def list_fibonacci(upperBound):
+# Lists all fibonacci numbers up to (but not including) upper_bound
+def list_fibonacci(upper_bound):
     i = 2
     fib_list = [1, 2]
     candidate = fib_list[i-1] + fib_list[i-2]
-    while (candidate < upperBound):
+    while (candidate < upper_bound):
         fib_list.append(candidate)
         i += 1
         candidate = fib_list[i-1] + fib_list[i-2]
     
     return fib_list
 
-# Lists all primes up to and including upperBound, uses the sieve of Erastosthenes
+"""
+* Used In Problem(s) 5, 10
+"""
+# Lists all primes up to and including upper_bound, uses the sieve of Erastosthenes
 def list_primes(upper_bound):
     prime_field = [True for i in range(upper_bound+1)]
     #print(primeField)
@@ -46,6 +50,9 @@ def bool_primes(upper_bound):
         p += 1
     return prime_field
 
+"""
+* Used In Problem(s) 7
+"""
 def is_prime(n):
     #"""
     #Set of all natural numbers
