@@ -1,5 +1,4 @@
 import time
-from HelperFunctions import get_prime_factors
 
 # Pretty trivial problem overall
 def compute():
