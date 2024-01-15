@@ -1,5 +1,4 @@
 import time
-from HelperFunctions import get_prime_factors
 
 # Pretty trivial problem overall
 def compute():
@@ -16,8 +15,7 @@ def compute():
 
 if __name__ == "__main__":
     starttime = time.time()
-    for i in range(10000):
-        compute()
+    print(compute())
     elapsedtime = time.time() - starttime
     print("Took", str(int(round(elapsedtime * 1000))), "ms")
 
