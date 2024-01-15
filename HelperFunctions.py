@@ -1,18 +1,33 @@
 import math, time
 
-def listPrimes(upperBound):
-    primeField = [True for i in range(upperBound+1)]
+"""
+* Used In Problem(s) 2
+"""
+def list_fibonacci(upperBound):
+    i = 2
+    fib_list = [1, 2]
+    candidate = fib_list[i-1] + fib_list[i-2]
+    while (candidate < upperBound):
+        fib_list.append(candidate)
+        i += 1
+        candidate = fib_list[i-1] + fib_list[i-2]
+    
+    return fib_list
+
+# Lists all primes up to and including upperBound, uses the sieve of Erastosthenes
+def list_primes(upper_bound):
+    prime_field = [True for i in range(upper_bound+1)]
     #print(primeField)
     p=2
-    while (p**2 <= upperBound):
-        if (primeField[p]):
-            for i in range(p**2, upperBound+1, p):
-                primeField[i] = False
+    while (p**2 <= upper_bound):
+        if (prime_field[p]):
+            for i in range(p**2, upper_bound+1, p):
+                prime_field[i] = False
         p += 1
     #print(primeField)
     primes = []
-    for j in range(2, upperBound+1):
-        if primeField[j]:
+    for j in range(2, upper_bound+1):
+        if prime_field[j]:
             #print(j)
             #print(primes)
             primes.append(j)
@@ -20,18 +35,18 @@ def listPrimes(upperBound):
     #print(primes)
     return primes
 
-def boolPrimes(upperBound):
-    primeField = [True for i in range(upperBound+1)]
+def bool_primes(upper_bound):
+    prime_field = [True for i in range(upper_bound+1)]
     #print(primeField)
     p=2
-    while (p**2 <= upperBound):
-        if (primeField[p]):
-            for i in range(p**2, upperBound+1, p):
-                primeField[i] = False
+    while (p**2 <= upper_bound):
+        if (prime_field[p]):
+            for i in range(p**2, upper_bound+1, p):
+                prime_field[i] = False
         p += 1
-    return primeField
+    return prime_field
 
-def isPrime(n):
+def is_prime(n):
     #"""
     #Set of all natural numbers
     if n==1 or n==0: #Remove 0 and 1 as False
@@ -55,22 +70,10 @@ def isPrime(n):
             f += 6
         return True #If all conditions are met than it is prime
             
-    #Improvements based on Problem 7 printed solution
-    """
-    if n%2 == 0:
-        return False
-    elif (n+1)%6 != 0 and (n-1)%6 != 0:
-        return False
-    else:
-        for i in range(3, math.floor(math.sqrt(n)+1), 2):
-            if n%i == 0:
-                return False
-        return True
-    """
-#for i in range(1, 25):
-#    print(i, isPrime(i))
+    # Improvements based on Problem 7 printed solution
 
-def sumDivisors(n):
+
+def sum_divisors(n):
     total = 0
 
     for i in range(1, int(math.floor(math.sqrt(n)))+1):
@@ -82,13 +85,13 @@ def sumDivisors(n):
 
     return total - n
 
-def generateNextFibbSection(fibbSection):
-    fibbSection[0] = fibbSection[1]
-    fibbSection[1] = fibbSection[2]
-    fibbSection[2] = fibbSection[0] + fibbSection[1]
-    return fibbSection
+def generate_next_fib_section(fib_section):
+    fib_section[0] = fib_section[1]
+    fib_section[1] = fib_section[2]
+    fib_section[2] = fib_section[0] + fib_section[1]
+    return fib_section
 
-def getDivisors(n):
+def get_divisors(n):
     divisors = []
 
     for i in range(1, int(math.floor(math.sqrt(n)))+1):
@@ -97,25 +100,25 @@ def getDivisors(n):
 
     return divisors
 
-def isPalindromeString(string):
+def is_palindrome_string(string):
     return string == string[::-1]
 
-def getPrimeFactors(n):
-    workingN = n
-    pFactors = []
-    timesDivided = 0
-    while workingN % 2 == 0:
-        workingN /= 2
-        timesDivided += 1
-    if timesDivided > 0:
-        pFactors.append((2,timesDivided))
-    for p in range(3, int(math.ceil(math.sqrt(workingN)))):
-        timesDivided = 0
-        if (workingN % p == 0):
-            while (workingN % p == 0):
-                workingN /= p
-                timesDivided += 1
-            pFactors.append((p, timesDivided))
-    if (workingN > 2):
-        pFactors.append((int(workingN), 1))
-    return pFactors
+def get_prime_factors(n):
+    working_n = n
+    p_factors = []
+    times_divided = 0
+    while working_n % 2 == 0:
+        working_n /= 2
+        times_divided += 1
+    if times_divided > 0:
+        p_factors.append((2,times_divided))
+    for p in range(3, int(math.ceil(math.sqrt(working_n)))):
+        times_divided = 0
+        if (working_n % p == 0):
+            while (working_n % p == 0):
+                working_n /= p
+                times_divided += 1
+            p_factors.append((p, times_divided))
+    if (working_n > 2):
+        p_factors.append((int(working_n), 1))
+    return p_factors
