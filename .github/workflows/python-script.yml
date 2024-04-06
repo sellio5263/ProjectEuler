@@ -1,0 +1,31 @@
+ name: Overall Project Euler
+
+  
+
+on: [push]
+
+  
+
+jobs:
+
+run-script:
+
+runs-on: self-hosted
+
+steps:
+
+- name: Checkout repository
+
+uses: actions/checkout@v2
+
+- name: Set up Python
+
+uses: actions/setup-python@v2
+
+with:
+
+python-version: '3.9'
+
+- name: Run script
+
+run: Overall Project Euler.py 
