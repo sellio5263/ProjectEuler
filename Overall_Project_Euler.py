@@ -8,7 +8,7 @@ def main():
     numremain = len(ANSWERS)
 	
     for (prob, expectans) in sorted(ANSWERS.items()):
-        module = importlib.import_module(f"Project_Euler_Problem_{prob:03}")
+        module = importlib.import_module(f"Solutions.Project_Euler_Problem_{prob:03}")
         starttime = time.time()
         actualans = module.compute()  # Must return a string
         elapsedtime = time.time() - starttime
@@ -25,7 +25,7 @@ def main():
             numfail += 1
         numremain -= 1
         
-        print(f"Problem {prob:03}: {round(elapsedtime * 1000, 3):7} ms{failstr}")
+        print(f"Problem {prob:03}: {round(elapsedtime * 1000, 3):10} ms{failstr}")
         print(f"Elapsed = {round(totaltime, 3)} s, Passed = {numpass}, Failed = {numfail}, Remaining = {numremain}", end="\n\n", flush=True)
 
     if (numfail == 0):

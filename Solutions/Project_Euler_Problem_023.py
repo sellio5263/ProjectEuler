@@ -14,7 +14,7 @@ def compute():
 
 # Abundant numbers are ones where the sum of the divisors are greater than the number
 def is_abundant_number(n):
-    return HelperFunctions.sumDivisors(n) > n
+    return HelperFunctions.sum_divisors(n) > n
 
 # Make a list of all numbers less than the upper bound and mark whether it's abundant or not
 def are_abundants_array(upper_bound):
