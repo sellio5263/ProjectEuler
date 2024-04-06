@@ -1,4 +1,4 @@
-pathname = "Project_Euler_Problem_022_Names.txt"
+pathname = "Solutions/Project_Euler_Problem_022_Names.txt"
 import time
 
 def compute():

@@ -1,4 +1,4 @@
-fileName = "Project_Euler_Problem_018_Pyramid.txt"
+fileName = "Solutions/Project_Euler_Problem_018_Pyramid.txt"
 import time
 
 
