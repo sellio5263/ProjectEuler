@@ -30,9 +30,11 @@ def main():
 
     if (numfail == 0):
         print("ALL PROBLEMS PASSING.")
+        time.sleep(3)
         return 0
     else:
         print("SOME PROBLEMS FAILING.")
+        time.sleep(3)
         return 1
 
 ANSWERS = {
