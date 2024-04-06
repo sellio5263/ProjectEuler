@@ -1,6 +1,6 @@
 name: Overall Project Euler
 
-on: [push, pull_request]
+on: [push, pull_request, workflow_dispatch]
 
 jobs:
   run-overall-test:
