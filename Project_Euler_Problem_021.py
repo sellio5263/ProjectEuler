@@ -10,8 +10,9 @@ def compute():
     return str(total)
 
 def is_amicable_number(n):
-    if HelperFunctions.sumDivisors(HelperFunctions.sumDivisors(n)) == n:
-        return n != HelperFunctions.sumDivisors(n)
+    div_sum = HelperFunctions.sum_divisors(n)
+    if HelperFunctions.sum_divisors(div_sum) == n:
+        return n != div_sum
     return False
 
             
