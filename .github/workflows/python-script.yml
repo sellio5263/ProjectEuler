@@ -15,4 +15,4 @@ jobs:
         with:
           python-version: '3.9'
       - name: Run script
-        run: Overall Project Euler.py 
+        run: Overall_Project_Euler.py 
