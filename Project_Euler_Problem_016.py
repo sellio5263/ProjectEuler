@@ -1,11 +1,14 @@
+exponent = 1000
 import time
 
-# Pretty trivial problem overall
 def compute():
+    # Python is cracked at calculating big numbers.  
+    big_num = 2 ** exponent
     total = 0
-    for i in range(1000):
-        if (i % 3 == 0 or i % 5 == 0):
-            total += i
+    big_num = str(big_num)
+    for i in range(len(big_num)):
+        total += int(big_num[i])
+            
     return str(total)
 
 
@@ -14,5 +17,3 @@ if __name__ == "__main__":
     print(compute())
     elapsedtime = time.time() - starttime
     print("Took", round(elapsedtime * 1000, 2), "ms.")
-
-    

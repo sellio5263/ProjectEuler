@@ -1,5 +1,5 @@
 import time
-from Project_Euler_Problem_003 import compute, compute_2
+from Project_Euler_Problem_017 import compute, compute_2
 
 if __name__ == "__main__":
     starttime = time.time()

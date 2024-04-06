@@ -25,8 +25,13 @@ def main():
             numfail += 1
         numremain -= 1
         
-        print(f"Problem {prob:03}: {int(round(elapsedtime * 1000)):7} ms{failstr}")
-        print(f"Elapsed = {int(totaltime)} s, Passed = {numpass}, Failed = {numfail}, Remaining = {numremain}", end="\n\n", flush=True)
+        print(f"Problem {prob:03}: {round(elapsedtime * 1000, 3):7} ms{failstr}")
+        print(f"Elapsed = {round(totaltime, 3)} s, Passed = {numpass}, Failed = {numfail}, Remaining = {numremain}", end="\n\n", flush=True)
+
+    if (numfail == 0):
+        print("ALL PROBLEMS PASSING.")
+    else:
+        print("SOME PROBLEMS FAILING.")
 
 ANSWERS = {
     1: "233168",
@@ -39,6 +44,17 @@ ANSWERS = {
     8: "23514624000",
     9: "31875000",
     10: "142913828922",
+    11: "70600674",
+    12: "76576500",
+    13: "5537376230",
+    14: "837799",
+    15: "137846528820",
+    16: "1366",
+    17: "21124",
+    18: "1074",
+    19: "171",
+    20: "648",
+    67: "7273",
 }
 
 if __name__ == "__main__":

@@ -34,4 +34,4 @@ if __name__ == "__main__":
     starttime = time.time()
     print(compute())
     elapsedtime = time.time() - starttime
-    print("Took", str(int(round(elapsedtime * 1000))), "ms")
+    print("Took", round(elapsedtime * 1000, 2), "ms.")
