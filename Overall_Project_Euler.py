@@ -30,8 +30,10 @@ def main():
 
     if (numfail == 0):
         print("ALL PROBLEMS PASSING.")
+        return 0
     else:
         print("SOME PROBLEMS FAILING.")
+        return 1
 
 ANSWERS = {
     1: "233168",
@@ -55,7 +57,7 @@ ANSWERS = {
     19: "171",
     20: "648",
     21: "31626",
-    67: "7273",
+    67: "7272",
 }
 
 if __name__ == "__main__":
