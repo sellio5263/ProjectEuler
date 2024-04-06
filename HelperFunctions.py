@@ -85,19 +85,24 @@ def is_prime(n):
 def sum_divisors(n):
     total = 0
 
+    # Check every number i between 1 and the sqrt of that number inclusive
     for i in range(1, int(math.floor(math.sqrt(n)))+1):
+        # If i evenly divides n, then add i and n/i to the total
         if n%i == 0:
             total += i + n/i
 
+    # If n was a perfect square, subtract the duplcitate sqrt(n) from the total
     if math.sqrt(n)%1 == 0:
         total -= int(math.sqrt(n))
 
+    # Remove n from the total as well (as the paired factor of 1)
     return total - n
 
 """
 * Used In Problem(s) 25
 """
 def generate_next_fib_section(fib_section):
+    # Shift down elements 1 and 2 to be the new 0 and 1 elements, add them together to get the new element 2
     fib_section[0] = fib_section[1]
     fib_section[1] = fib_section[2]
     fib_section[2] = fib_section[0] + fib_section[1]
