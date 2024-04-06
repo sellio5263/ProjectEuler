@@ -1,12 +1,14 @@
 fileName = "Project_Euler_Problem_018_Pyramid.txt"
+import time
 
 
 def compute():
-    triangle = readTriangle(fileName)
+    triangle = read_triangle(fileName)
             
-    return str(maxSum(triangle))
+    return str(max_sum(triangle))
 
-def readTriangle(filepath):
+# Just reads the triangle into a giant list of lists for each row
+def read_triangle(filepath):
     file = open(filepath, "r")
     pyramid = []
     for line in file:
@@ -18,15 +20,22 @@ def readTriangle(filepath):
 
     return pyramid     
 
-def maxSum(triangle):
+def max_sum(triangle):
+    # Start one row up from the bottom, move up a row each time, until you get to the 0th row
     for i in range(len(triangle)-2, -1, -1):
+        # Update the value of this cell with the sum of itself and the larger of it's two descendents
+        # This process repeated should propogate the largest sum all the way up to the top
         for j in range(len(triangle[i])):
-            currentVal = triangle[i][j]
-            subVal1 = triangle[i+1][j]
-            subVal2 = triangle[i+1][j+1]
-            updateVal = currentVal + max(subVal1, subVal2)
-            triangle[i][j] = updateVal
+            current_val = triangle[i][j]
+            sub_val_1 = triangle[i+1][j]
+            sub_val_2 = triangle[i+1][j+1]
+            update_val = current_val + max(sub_val_1, sub_val_2)
+            triangle[i][j] = update_val
+    # Return the top of the triangle which should now contain the largest sum
     return triangle[0][0]
 
 if __name__ == "__main__":
+    starttime = time.time()
     print(compute())
+    elapsedtime = time.time() - starttime
+    print("Took", round(elapsedtime * 1000, 2), "ms.")

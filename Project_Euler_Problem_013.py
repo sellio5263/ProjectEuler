@@ -100,11 +100,12 @@ listNums = [
              20849603980134001723930671666823555245252804609722,
              53503534226472524250874054075591789781264330331690 
             ]
-import HelperFunctions
+import time
 
 def compute():
     result = 0
 
+    # Python is cracked at this kind of thing.  INT_MAX?  Never heard of them.
     for i in range(len(listNums)):
         num = listNums[i]
         #print(num)
@@ -116,6 +117,9 @@ def compute():
         
 
 if __name__ == "__main__":
+    starttime = time.time()
     print(compute())
+    elapsedtime = time.time() - starttime
+    print("Took", round(elapsedtime * 1000, 2), "ms.")
 
     

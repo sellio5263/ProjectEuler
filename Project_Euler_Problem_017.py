@@ -1,48 +1,56 @@
+import time
 upperBound = 1000
+# All different number word components
+single_digits = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+tens_values = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]
+teens_values = ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"]
 
 def compute():
-    endOutput = ""
+    # Add all the number words to a string and count length
+    end_output = ""
     for i in range(upperBound):
         num = i+1
-        endOutput += numToWord(num)
+        end_output += num_to_word(num)
     
             
-    return str(len(endOutput))
+    return str(len(end_output))
 
-def numToWord(n):
-    singleDigits = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
-    tensValues = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]
-    teensValues = ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"]
-    outputString = ""
+def num_to_word(n):
+    output_string = ""
 
-    inputString = str(n)
+    # Starting String
+    input_string = str(n)
 
-    if len(inputString) == 4:
-        firstChar = int(inputString[0])
-        outputString += singleDigits[firstChar] + "thousand"
-        outputString += numToWord(int(inputString[1:]))
-    elif len(inputString) == 3:
-        firstChar = int(inputString[0])
-        secondChar = int(inputString[1])
-        thirdChar = int(inputString[2])
+    # If we have a 4 digit number then add first digit thousand to the output and recursively call on the rest
+    if len(input_string) == 4:
+        first_char = int(input_string[0])
+        output_string += single_digits[first_char] + "thousand"
+        output_string += num_to_word(int(input_string[1:]))
+    elif len(input_string) == 3:
+        first_char = int(input_string[0])
+        second_char = int(input_string[1])
+        third_char = int(input_string[2])
 
-        outputString += singleDigits[firstChar] + "hundred"
+        output_string += single_digits[first_char] + "hundred"
 
-        if not (secondChar == 0 and thirdChar == 0):
-            outputString += "and" + numToWord(int(inputString[1:]))
-    elif len(inputString) == 2:
-        firstChar = int(inputString[0])
-        secondChar = int(inputString[1])
+        if not (second_char == 0 and third_char == 0):
+            output_string += "and" + num_to_word(int(input_string[1:]))
+    elif len(input_string) == 2:
+        first_char = int(input_string[0])
+        second_char = int(input_string[1])
 
-        if firstChar == 1:
-            outputString += teensValues[secondChar]
+        if first_char == 1:
+            output_string += teens_values[second_char]
         else:
-            outputString += tensValues[firstChar] + numToWord(int(inputString[1:]))  
+            output_string += tens_values[first_char] + num_to_word(int(input_string[1:]))  
     else:
-        firstChar = int(inputString[0])
-        outputString += singleDigits[firstChar]
+        first_char = int(input_string[0])
+        output_string += single_digits[first_char]
 
-    return outputString
+    return output_string
 
 if __name__ == "__main__":
+    starttime = time.time()
     print(compute())
+    elapsedtime = time.time() - starttime
+    print("Took", round(elapsedtime * 1000, 2), "ms.")

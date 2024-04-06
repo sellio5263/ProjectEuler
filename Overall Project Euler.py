@@ -25,8 +25,13 @@ def main():
             numfail += 1
         numremain -= 1
         
-        print(f"Problem {prob:03}: {int(round(elapsedtime * 1000)):7} ms{failstr}")
-        print(f"Elapsed = {int(totaltime)} s, Passed = {numpass}, Failed = {numfail}, Remaining = {numremain}", end="\n\n", flush=True)
+        print(f"Problem {prob:03}: {round(elapsedtime * 1000, 3):7} ms{failstr}")
+        print(f"Elapsed = {round(totaltime, 3)} s, Passed = {numpass}, Failed = {numfail}, Remaining = {numremain}", end="\n\n", flush=True)
+
+    if (numfail == 0):
+        print("ALL PROBLEMS PASSING.")
+    else:
+        print("SOME PROBLEMS FAILING.")
 
 ANSWERS = {
     1: "233168",
