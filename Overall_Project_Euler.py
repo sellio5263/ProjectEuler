@@ -30,11 +30,9 @@ def main():
 
     if (numfail == 0):
         print("ALL PROBLEMS PASSING.")
-        time.sleep(3)
         return 0
     else:
         print("SOME PROBLEMS FAILING.")
-        time.sleep(3)
         return 1
 
 ANSWERS = {
@@ -59,7 +57,16 @@ ANSWERS = {
     19: "171",
     20: "648",
     21: "31626",
-    67: "7272",
+    22: "871198282",
+    23: "4179871",
+    24: "2783915460", 
+    25: "4782",
+    26: "983",
+    27: "-59231",
+    28: "669171001", 
+    29: "9183", 
+    30: "443839",
+    67: "7273",
 }
 
 if __name__ == "__main__":
