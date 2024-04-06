@@ -16,7 +16,7 @@ def list_fibonacci(upper_bound):
     return fib_list
 
 """
-* Used In Problem(s) 5, 10
+* Used In Problem(s) 5, 10, 27
 """
 # Lists all primes up to and including upper_bound, uses the sieve of Erastosthenes
 def list_primes(upper_bound):
@@ -51,7 +51,7 @@ def bool_primes(upper_bound):
     return prime_field
 
 """
-* Used In Problem(s) 7
+* Used In Problem(s) 7, 27
 """
 def is_prime(n):
     #"""
@@ -79,7 +79,9 @@ def is_prime(n):
             
     # Improvements based on Problem 7 printed solution
 
-
+"""
+* Used In Problem(s) 21, 23
+"""
 def sum_divisors(n):
     total = 0
 
@@ -92,6 +94,9 @@ def sum_divisors(n):
 
     return total - n
 
+"""
+* Used In Problem(s) 25
+"""
 def generate_next_fib_section(fib_section):
     fib_section[0] = fib_section[1]
     fib_section[1] = fib_section[2]
