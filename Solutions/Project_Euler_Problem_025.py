@@ -11,7 +11,7 @@ def compute():
     
     # Keep updating until you find one where it has more than 1000 digits then return the seed
     while (not found):
-        fibonacci_section = HelperFunctions.generateNextFibbSection(fibonacci_section)
+        fibonacci_section = HelperFunctions.generate_next_fib_section(fibonacci_section)
         index += 1
         if (len(str(fibonacci_section[2])) == numDigits):
             found = True
