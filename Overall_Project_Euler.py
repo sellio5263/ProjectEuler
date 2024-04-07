@@ -1,5 +1,5 @@
-import sys, os, importlib, time
-import Solutions.HelperFunctions
+import sys, importlib, time
+sys.path.append("C:\\Users\\scott\\OneDrive\\Documents\\ProjectEuler\\Solutions")
 
 def main():
     totaltime = 0.0  # In seconds
