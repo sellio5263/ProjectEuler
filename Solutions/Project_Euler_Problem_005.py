@@ -8,7 +8,7 @@ def compute():
     bound = 20
     primes = list_primes(bound)
     res = 1
-    exponents = [1 for i in range(len(primes) + 1)]
+    exponents = [1 for _ in range(len(primes) + 1)]
     i = 0
     for prime in primes:
         if prime <= math.sqrt(bound):
