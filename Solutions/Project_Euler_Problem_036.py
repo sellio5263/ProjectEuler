@@ -1,10 +1,11 @@
-import HelperFunctions
+import HelperFunctions, time
 def compute():
     total = 0
     for i in range(1000000):
-        decimalWorks = HelperFunctions.isPalindromeString(str(i))
-        binaryWorks = HelperFunctions.isPalindromeString(str(bin(i))[2:])
-        if decimalWorks and binaryWorks:
+        # Check if the property that we want is present, and if it is, add it to the total
+        decimal_works = HelperFunctions.is_palindrome_string(str(i))
+        binary_works = HelperFunctions.is_palindrome_string(str(bin(i))[2:])
+        if decimal_works and binary_works:
             total += i
     return str(total)
         

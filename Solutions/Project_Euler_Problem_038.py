@@ -12,17 +12,20 @@ def compute():
         to give the possibility of being 9 digit pandigital. So we start with
         the lowest 4 digit number and go until we get to a 5 digit number.
         """
-        lowerI = int('1' + ('0' * (9//n -1)))
-        upperI = int('1' + ('0' * (9//n)))
-        for i in range(lowerI, upperI):
-            testString = ""
+        lower_i = int('1' + ('0' * (9//n -1)))
+        upper_i = int('1' + ('0' * (9//n)))
+        for i in range(lower_i, upper_i):
+            test_string = ""
+            # Do all products and add to the string
             for j in range(1,n+1):
-                testString += str(i*j)
-            if (isPandigital(testString) and int(testString) > greatest):
-                greatest = int(testString)
+                test_string += str(i*j)
+            if (is_pandigital(test_string) and int(test_string) > greatest):
+                greatest = int(test_string)
+    # Return the largest string we found
     return str(greatest)
 
-def isPandigital(s):
+def is_pandigital(s):
+    # Sorts the string and checks if it's '123456789'
     digits = ''.join(sorted(s))
     return digits == checkVal
 
