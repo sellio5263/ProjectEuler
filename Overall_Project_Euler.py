@@ -1,5 +1,5 @@
-import importlib, time
-
+import sys, importlib, time
+sys.path.append("C:\\Users\\scott\\OneDrive\\Documents\\ProjectEuler\\Solutions")
 
 def main():
     totaltime = 0.0  # In seconds
@@ -8,6 +8,7 @@ def main():
     numremain = len(ANSWERS)
 	
     for (prob, expectans) in sorted(ANSWERS.items()):
+        importlib.invalidate_caches()
         module = importlib.import_module(f"Solutions.Project_Euler_Problem_{prob:03}")
         starttime = time.time()
         actualans = module.compute()  # Must return a string
@@ -66,6 +67,11 @@ ANSWERS = {
     28: "669171001", 
     29: "9183", 
     30: "443839",
+    31: "73682",
+    32: "45228",
+    33: "100", 
+    34: "40730",
+    35: "55",
     67: "7273",
 }
 
