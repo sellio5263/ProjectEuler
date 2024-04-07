@@ -1,5 +1,5 @@
 import time
-from HelperFunctions import is_prime
+from . import HelperFunctions
 
 # Problem is pretty trivial overall
 def compute():
@@ -10,10 +10,10 @@ def compute():
     # Then check every 6k-1 and 6k+1 for primality and count until you reach the 10,001st
     i=6
     while (count<n):
-        if is_prime(i-1):
+        if HelperFunctions.is_prime(i-1):
             last_prime = i-1
             count += 1
-        if count < n and is_prime(i+1):
+        if count < n and HelperFunctions.is_prime(i+1):
             last_prime = i+1
             count += 1
         i+=6

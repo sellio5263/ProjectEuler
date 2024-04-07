@@ -1,5 +1,5 @@
 import time, math
-from HelperFunctions import list_primes
+from Solutions.HelperFunctions import list_primes
 
 # Solution is constructed rather than tested for as suggested in Problem 5 Overview
 def compute():

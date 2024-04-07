@@ -1,4 +1,4 @@
-fileName = "Solutions/Project_Euler_Problem_067_Pyramid.txt"
+fileName = "Project_Euler_Problem_067_Pyramid.txt"
 
 
 def compute():

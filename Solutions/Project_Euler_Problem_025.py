@@ -1,5 +1,5 @@
 numDigits = 1000
-import HelperFunctions, time
+import Solutions.HelperFunctions as HelperFunctions, time
 
 
 def compute():

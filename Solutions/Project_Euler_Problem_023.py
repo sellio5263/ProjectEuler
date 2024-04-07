@@ -1,5 +1,5 @@
 upperBound = 28123
-import time, HelperFunctions
+import time, Solutions.HelperFunctions as HelperFunctions
 
 def compute():
     sum_failed = 0

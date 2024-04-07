@@ -1,5 +1,5 @@
 upperBound = 10000
-import HelperFunctions, time
+import Solutions.HelperFunctions as HelperFunctions, time
 
 def compute():
     total = 0

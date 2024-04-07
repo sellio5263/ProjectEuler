@@ -1,5 +1,5 @@
-import importlib, time
-
+import sys, os, importlib, time
+import Solutions.HelperFunctions
 
 def main():
     totaltime = 0.0  # In seconds
@@ -8,6 +8,7 @@ def main():
     numremain = len(ANSWERS)
 	
     for (prob, expectans) in sorted(ANSWERS.items()):
+        importlib.invalidate_caches()
         module = importlib.import_module(f"Solutions.Project_Euler_Problem_{prob:03}")
         starttime = time.time()
         actualans = module.compute()  # Must return a string
@@ -66,8 +67,25 @@ ANSWERS = {
     28: "669171001", 
     29: "9183", 
     30: "443839",
+    31: "73682",
+    32: "45228",
+    33: "100", 
+    34: "40730",
+    35: "55",
     67: "7273",
 }
+
+# def import_with_helpers(module_name):
+#     # Import the module dynamically
+#     module = importlib.import_module(module_name)
+#     helpermodule = importlib.import_module("HelperFunctions")
+
+#     # Import symbols from HelperFunctions into the module's namespace
+#     for name in dir(helpermodule):
+#         if not name.startswith("__"):  # Exclude dunder methods
+#             setattr(module, name, getattr(helpermodule, name))
+    
+#     return module
 
 if __name__ == "__main__":
     main()
