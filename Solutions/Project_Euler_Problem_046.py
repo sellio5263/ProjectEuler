@@ -1,82 +1,39 @@
 import HelperFunctions, time
+
+# Optimal factor is 4
 def compute():
-    i = 35
+    # Optimal factor found through experimentation
+    factor = 4
+    start_upper_bound = 100
     found = False
+    # We'll start at 35 since 33 we were show does work
+    start_lower_bound = 35
     while not found:
-        if isComposite(i):
-            works = False
-            s = 1
-            while not works:
-                if (2 * s**2) > i:
-                    break
-                else:
-                    if HelperFunctions.is_prime(i - 2*s**2):
-                        works = True
-                    else:
-                        s += 1
-            if not works:
+        # I know we're going to do a lot of prime checking, so precalculate lots of primes (enlarge later if we need to)
+        primes = HelperFunctions.bool_primes(start_upper_bound)
+        for i in range(start_lower_bound, len(primes), 2):
+            # We know we have an odd composite, then check if it's a counter example
+            if not primes[i] and is_counter_example(i, primes):
                 return str(i)
-            #print(i, "Passed")
-            i += 2
+        # We ran out of precalculated primes, save our progress in the lower bound, then check more primes
+        start_lower_bound = start_upper_bound + 1
+        start_upper_bound *= factor
+
+def is_counter_example(i, primes):
+    works = False
+    # Check all the square numnbers to see if i - 2*s^2 is prime
+    # That would mean that i is the sum of a prime and twice a square
+    # We need a counter example so keep searching
+    s = 1
+    while not works:
+        if (2 * s**2) > i:
+            break
         else:
-            #print(i, "Passed")
-            i += 2
-
-def computeAlt(factor):
-    startBound = 100
-    found = False
-    while not found:
-        primes = HelperFunctions.bool_primes(startBound)
-        for i in range(35, len(primes), 2):
-            if not primes[i]:
-                works = False
-                s = 1
-                while not works:
-                    if (2 * s**2) > i:
-                        break
-                    else:
-                        if primes[i - 2*s**2]:
-                            works = True
-                        else:
-                            s += 1
-                if not works:
-                    return str(i)
-        startBound *= factor
-                
-
-
-def isComposite(n):
-    return not HelperFunctions.is_prime(n)
-
-def test(n):
-    times = [0,0]
-    for i in range(1, n):
-        starttime = time.time()
-        compute()
-        elapsedtime = time.time() - starttime
-        times[0] += int(round(elapsedtime * 1000))
-
-        starttime = time.time()
-        computeAlt(100)
-        elapsedtime = time.time() - starttime
-        times[1] += int(round(elapsedtime * 1000))
-
-    times[0] /= n
-    times[1] /= n
-    return times
-
-def testAlt(n, f):
-    times = [0 for i in range(f-1)]
-    for test in range(1, n):
-        for i in range(5, f+1, 5):
-            starttime = time.time()
-            computeAlt(i)
-            elapsedtime = time.time() - starttime
-            times[i-2] += int(round(elapsedtime * 1000))
-
-    for i in range(0, f-1):
-        times[i] /= n
-    return times
+            if primes[i - 2*s**2]:
+                works = True
+            else:
+                s += 1
+    return not works
 
 if __name__ == "__main__":
     starttime = time.time()

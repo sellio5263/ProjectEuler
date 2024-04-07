@@ -1,17 +1,24 @@
 import HelperFunctions, time
+
 problemN = 4
 def compute():
+    # We know 646  only has 3, so we should start checking here for runs of 4
     i = 647
+    # How many in a row we found
     j=0
-    solutionFound = False
+    solution_found = False
 
-    while not solutionFound:
-        pFactors = HelperFunctions.get_prime_factors(i+j)
-        if len(pFactors) == problemN:
+    # Keep looking until we find our answer
+    while not solution_found:
+        p_factors = HelperFunctions.get_prime_factors(i+j)
+        # If we have the right number of factors, then that's one more in a row that we found
+        if len(p_factors) == problemN:
+            # If we found the right number in a row, then we're done
             if j == problemN - 1:
-                solutionFound = True
+                solution_found = True
             else:
                 j += 1
+        # Our run is broken, check the next number
         else:
             i += 1
             j = 0

@@ -1,20 +1,18 @@
 import itertools, time
 def compute():
     total = 0
+    # Generates all the permutations needed
     permutations = list(itertools.permutations(range(0, 10)))
+    # Check if it meets our requirements, and if it does, then add it to the total
     for p in permutations: 
-        pStr = ''.join(map(str, p))
-        if meetsDivisRequirements(pStr):
-            total += int(pStr)
+        p_str = ''.join(map(str, p))
+        if meets_divis_reqs(p_str):
+            total += int(p_str)
           
     return str(total)
 
-def meetsDivisRequirements(s):
-    """
-    if len(s) != 10:
-        return False
-    else:
-    """
+# Checks whether or not the number meets the divisibility reqs of the problem
+def meets_divis_reqs(s):
     if int(s[1:4]) % 2 != 0:
         return False
     elif int(s[2:5]) % 3 != 0:
