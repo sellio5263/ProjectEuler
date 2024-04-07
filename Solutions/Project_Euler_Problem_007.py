@@ -1,5 +1,5 @@
 import time
-from . import HelperFunctions
+import HelperFunctions
 
 # Problem is pretty trivial overall
 def compute():

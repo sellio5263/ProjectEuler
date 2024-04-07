@@ -1,5 +1,5 @@
 bound = 999
-import Solutions.HelperFunctions as HelperFunctions, time
+import HelperFunctions, time
 
 # Find quadratic of form n^2 + an + b where |a| < 1000, |b| <= 1000
 def compute():

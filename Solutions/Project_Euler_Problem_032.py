@@ -1,4 +1,4 @@
-import Solutions.HelperFunctions as HelperFunctions, time
+import HelperFunctions, time
 checkVal = "123456789"
 setPandigital = []
 

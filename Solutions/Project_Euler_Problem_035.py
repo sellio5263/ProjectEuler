@@ -1,4 +1,4 @@
-import Solutions.HelperFunctions as HelperFunctions, time
+import HelperFunctions, time
 def compute():
     counter = 4 #Include all single digits first (2, 3, 5, 7)
     for i in range(11, 1000000, 2):

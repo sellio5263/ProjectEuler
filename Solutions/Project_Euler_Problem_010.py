@@ -1,5 +1,5 @@
 import time
-from Solutions.HelperFunctions import list_primes
+from HelperFunctions import list_primes
 
 # Problem is fairly trivial overall
 def compute():

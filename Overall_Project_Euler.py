@@ -75,17 +75,5 @@ ANSWERS = {
     67: "7273",
 }
 
-# def import_with_helpers(module_name):
-#     # Import the module dynamically
-#     module = importlib.import_module(module_name)
-#     helpermodule = importlib.import_module("HelperFunctions")
-
-#     # Import symbols from HelperFunctions into the module's namespace
-#     for name in dir(helpermodule):
-#         if not name.startswith("__"):  # Exclude dunder methods
-#             setattr(module, name, getattr(helpermodule, name))
-    
-#     return module
-
 if __name__ == "__main__":
     main()
