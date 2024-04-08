@@ -41,6 +41,8 @@ def list_primes(upper_bound):
 
 def bool_primes(upper_bound):
     prime_field = [True for i in range(upper_bound+1)]
+    prime_field[0] = False
+    prime_field[1] = False
     #print(primeField)
     p=2
     while (p**2 <= upper_bound):
